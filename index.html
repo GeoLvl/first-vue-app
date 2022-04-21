@@ -19,10 +19,18 @@
         <div class="row">
           <h1>Menus :</h1>
           <ol>
-            <li v-for="menu in menus">{{ menu }}</li>
+            <li v-for="menu in menus">
+              {{ menu }} <button v-on:click="isOrdered(menu)">Commander</button>
+            </li>
           </ol>
         </div>
       </div>
+    </div>
+    <div class="row">
+      <h2>Commande en cours :</h2>
+      <ul>
+        <li v-for="commande in commandes">{{ commande }}</li>
+      </ul>
     </div>
 
     <script>
@@ -32,6 +40,12 @@
           user: "",
           menus: ["pizza", "burger", "tacos", "salad"],
           commandes: [],
+        },
+        methods: {
+          isOrdered: function (menu) {
+            console.log(`${menu} ordered !`);
+            this.commandes.push(menu);
+          },
         },
       });
     </script>
