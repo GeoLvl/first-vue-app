@@ -25,12 +25,12 @@
           </ol>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <h2>Commande en cours :</h2>
-      <ul>
-        <li v-for="commande in commandes">{{ commande }}</li>
-      </ul>
+      <div class="row" v-if="commandes.length > 0">
+        <h2>Commande en cours :</h2>
+        <ul>
+          <li v-for="commande in commandes">{{ commande }}</li>
+        </ul>
+      </div>
     </div>
 
     <script>
